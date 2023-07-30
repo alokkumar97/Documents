@@ -30,8 +30,11 @@ Step 2: Add Sonar Scanner dependency & JACOCO plugin in pom.xml
 	    </execution>
 	</executions>
 </plugin>
-
-Step 3: maven goal
+Step 3: Generate Secret Key from Sonar Application
+--------------------------------------------------
+-> Open Sonar App from browser :: localhost:9000/
+-> Go to profile -> account -> security -> generate secret key
+Step 4: maven goal
 -----------------------
 for JACOCO :: clean org.jacoco:jacoco-maven-plugin:prepare-agent install
-for SONAR  :: sonar:sonar -Dsonar.login=squ_9ee0fba450ebd2bcb615dc5e4e3459e09bb1ba65
+for SONAR  :: sonar:sonar -Dsonar.login= 'secret key of sonar'
