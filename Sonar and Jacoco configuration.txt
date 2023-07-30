@@ -1,0 +1,37 @@
+Step 1: Install and run SonarQube in your local system
+	Default port for Sonar: localhost:9000/
+
+Step 2: Add Sonar Scanner dependency & JACOCO plugin in pom.xml
+----------------------------------------------------
+========SONAR Scanner========
+<dependency>
+     <groupId>org.sonarsource.scanner.maven</groupId>
+     <artifactId>sonar-maven-plugin</artifactId>
+     <version>3.8.0.2131</version>
+</dependency>
+
+========JACOCO Plugin=========
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.5</version>
+	<executions>
+	    <execution>
+		<id>agent</id>
+		   <goals>
+		     <goal>prepare-agent</goal>
+		   </goals>
+	    </execution>
+	    <execution>
+		<id>report</id>
+		   <goals>
+		      <goal>report</goal>
+		   </goals>
+	    </execution>
+	</executions>
+</plugin>
+
+Step 3: maven goal
+-----------------------
+for JACOCO :: clean org.jacoco:jacoco-maven-plugin:prepare-agent install
+for SONAR  :: sonar:sonar -Dsonar.login=squ_9ee0fba450ebd2bcb615dc5e4e3459e09bb1ba65
